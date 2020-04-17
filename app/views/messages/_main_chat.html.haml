@@ -1,0 +1,36 @@
+.chat-main
+  .main-header
+    .main-header__left__box
+      %p.current-group test
+      %p.member-list Member：masa
+    = link_to "#" do
+      .edit-btn Edit
+  .messages
+    .messages__box
+      .messages__box__username
+        %p.user-name masa
+        %p.date-and-time 2020/4/15(Wed) 00:00:00
+      %p.comment おはよう
+    .messages__box
+      .messages__box__username
+        %p.user-name masa
+        %p.date-and-time 2020/4/15(Wed) 00:00:00
+      %p.comment おはよう
+    .messages__box
+      .messages__box__username
+        %p.user-name masa
+        %p.date-and-time 2020/4/15(Wed) 00:00:00
+      %p.comment おはよう
+    .messages__box
+      .messages__box__username
+        %p.user-name masa
+        %p.date-and-time 2020/4/15(Wed) 00:00:00
+      %p.comment おはよう
+  .form
+    .new-comment
+      .new-comment__box
+        %input.input-text{placeholder: "type a message"}/
+        %label{class: "comment__image"}
+          %i.fa.fa-image
+          %input{type: "file"}
+      %input.submit-btn{type:"submit",value:"Send"}

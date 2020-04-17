@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+.wrapper{
+  display: flex;
+  .chat-side{
+    @include he_wi(100vh,300px);
+    background-color: $dark_grey;
+    .side-header{
+      background-color:#253141;
+      @include he_wi(100px,300px);
+      &__box{
+        @include fo_size_color(16px,$white_f);
+        @include he_pa_di_ju(20px,0 20px);
+        font-weight: bold;
+        line-height: 100px;
+        .new-group{
+          padding-right: 5px;
+          text-decoration: none;
+          color: $white_f;
+        }
+        .edit-user{
+          text-decoration: none;
+          color: $white_f;
+        }
+      }
+    }
+    .groups{
+      background-color: $dark_grey;
+      height: 105px;
+      font-weight: bold;
+      color: $white_f;
+      &-name{
+        font-size: 15px;
+        padding: 20px 20px 5px 20px;
+      }
+      &-message{
+        font-size: 11px;
+        padding: 0 20px 40px 20px;
+      }
+    }
+  }
+  .chat-main{
+    @include he_wi(100vh,100vw);
+    background-color: $white_f;
+    .main-header{
+      @include he_pa_di_ju(100px,0 40px);
+      background-color: $white_f;
+      border-bottom: 1px solid $white_e;
+      align-items: center;
+      .current-group{
+        @include fo_size_color(20px,#333333);
+        padding-top: 35px;
+      }
+      .member-list{
+        @include fo_size_color(12px,#999999);
+        padding-top: 15px;
+      }
+    }
+    a{
+      text-decoration: none;
+      .edit-btn {
+        @include he_wi(40px,72px);
+        @include fo_size_color(16px,$sky_blue);
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid $sky_blue;
+      }
+    }
+    .messages{
+      background-color: #fafafa;
+      height: calc(100vh - 190px);
+      padding: 35px 40px;
+      &__box{
+        padding-bottom: 46px;
+        &__username{
+          padding-bottom: 12px;
+          display: flex;
+          .user-name{
+            @include fo_size_color(16px,#333333);
+          }
+          .date-and-time{
+            font-size: 12px;
+            margin-left: 10px;
+            color: #999999;
+          }
+        }
+        .comment{
+          font-size: 14px;
+          color: #434A54;
+        }
+      }
+    }
+    .form{
+      background-color: #d2d2d2;
+      height: 90px;
+      .new-comment{
+        display: flex;
+        padding: 20px 0 0 40px;
+        &__box{
+          @include he_wi(50px,100%);
+          position: relative;
+          .input-text{
+            @include he_wi(50px,100%);
+            @include fo_size_color(16px,#434a54);
+            padding: 0 15px;
+            border-style: none;
+          }
+          .comment__image{
+            position: absolute;
+            line-height: 50px;
+            right: 10px;
+            input{
+              display: none;
+            }
+          }
+        }
+        .submit-btn{
+          @include he_wi(50px,100px);
+          @include fo_size_color(15px,$white_f);
+          padding: 0 30px;
+          margin: 0 40px 0 15px;
+          background-color: $sky_blue;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
