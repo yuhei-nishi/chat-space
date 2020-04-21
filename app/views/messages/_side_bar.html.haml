@@ -4,22 +4,15 @@
       .user-name
         = current_user.name
       %ul.menu
-        = link_to "#", class: "new-group" do
+        = link_to new_group_path(current_user), class: "new-group" do
           %i.fa.fa-edit
-        = link_to  edit_user_path(current_user), class: "edit-user" do
+        = link_to edit_user_path(current_user), class: "edit-user" do
           %i.fa.fa-cog
-  .groups
-    %p.groups-name techcamp
-    %p.groups-message まだメッセージがありません
-  .groups
-    %p.groups-name techcamp
-    %p.groups-message まだメッセージがありません
-  .groups
-    %p.groups-name techcamp
-    %p.groups-message まだメッセージがありません
-  .groups
-    %p.groups-name techcamp
-    %p.groups-message まだメッセージがありません
-  .groups
-    %p.groups-name techcamp
-    %p.groups-message まだメッセージがありません
+  .side-bar__groups-list
+    - current_user.groups.each do |group|
+      .groups
+        = link_to '#' do
+          .groups__name
+            = group.name
+          .groups__message
+            メッセージはまだありません。
