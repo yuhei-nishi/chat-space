@@ -29,12 +29,15 @@
       background-color: $dark_grey;
       height: 105px;
       font-weight: bold;
-      color: $white_f;
-      &-name{
+      a{
+        color: $white_f;
+        text-decoration: none;
+      }
+      &__name{
         font-size: 15px;
         padding: 20px 20px 5px 20px;
       }
-      &-message{
+      &__message{
         font-size: 11px;
         padding: 0 20px 40px 20px;
       }
@@ -95,11 +98,13 @@
       background-color: #d2d2d2;
       height: 90px;
       .new-comment{
-        display: flex;
         padding: 20px 0 0 40px;
         &__box{
           @include he_wi(50px,100%);
           position: relative;
+          .new_message{
+            display: flex;
+          }
           .input-text{
             @include he_wi(50px,100%);
             @include fo_size_color(16px,#434a54);

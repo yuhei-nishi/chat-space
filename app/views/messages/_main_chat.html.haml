@@ -1,36 +1,24 @@
 .chat-main
   .main-header
     .main-header__left__box
-      %p.current-group test
-      %p.member-list Member：masa
-    = link_to "#" do
+      %p.current-group 
+        = @group.name
+      %p.member-list
+        Member：
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
+    = link_to edit_group_path(params[:group_id]) do
       .edit-btn Edit
   .messages
-    .messages__box
-      .messages__box__username
-        %p.user-name masa
-        %p.date-and-time 2020/4/15(Wed) 00:00:00
-      %p.comment おはよう
-    .messages__box
-      .messages__box__username
-        %p.user-name masa
-        %p.date-and-time 2020/4/15(Wed) 00:00:00
-      %p.comment おはよう
-    .messages__box
-      .messages__box__username
-        %p.user-name masa
-        %p.date-and-time 2020/4/15(Wed) 00:00:00
-      %p.comment おはよう
-    .messages__box
-      .messages__box__username
-        %p.user-name masa
-        %p.date-and-time 2020/4/15(Wed) 00:00:00
-      %p.comment おはよう
+    = render @messages
   .form
     .new-comment
       .new-comment__box
-        %input.input-text{placeholder: "type a message"}/
-        %label{class: "comment__image"}
-          %i.fa.fa-image
-          %input{type: "file"}
-      %input.submit-btn{type:"submit",value:"Send"}
+        = form_for [@group, @message] do |f|
+          .new-comment__box
+            = f.text_field :content, class: 'input-text', placeholder: 'type a message'
+            = f.label :image, class: 'comment__image' do
+              %i.fa.fa-image
+              %input{type: "file"}
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'submit-btn'
