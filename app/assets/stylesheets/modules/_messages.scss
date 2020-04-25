@@ -8,6 +8,7 @@
     background-color: $dark_grey;
     .side-header{
       background-color:#253141;
+      overflow: scroll;
       @include he_wi(100px,300px);
       &__box{
         @include fo_size_color(16px,$white_f);
@@ -74,6 +75,7 @@
       background-color: #fafafa;
       height: calc(100vh - 190px);
       padding: 35px 40px;
+      overflow: scroll;
       &__box{
         padding-bottom: 46px;
         &__username{
